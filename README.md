@@ -41,7 +41,7 @@ Setup &amp; Usage
 
 3) Add the PageTypeTab attribute to your PageType classes
 
-	[PageTypeTab( Tab=typeof(MyPageTypeTab), Section ="General Pages")]
+	[PageTypeTab(Tab = typeof(MyPageTypeTab), Section = "General Pages")]
 	[PageType(Filename = "/MyPage.aspx", Name = "My Page")]
 	public class MyPage : TypedPageData
 	{

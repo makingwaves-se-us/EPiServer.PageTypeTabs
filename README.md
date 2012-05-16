@@ -3,7 +3,7 @@ EPiServer.PageTypeTabs
 
 EPiServer.PageTypeTabs is a slightly modified version of [Joshua Folkerts' PageTypeTabs](http://www.joshuafolkerts.com/blog/2011/08/page-type-tabs/) for EPiServer. This version allows you to separate the page types within each tab into separate sections. This was developed and tested with EPiServer CMS 6 R2 and PageTypeBuilder 1.3.1.
 
-Setup &amp; Usage
+Usage
 --
 
 1) Update the Virtual Path Mapping in episerver.config to point to the new CreateNewPage.aspx file.
@@ -46,3 +46,5 @@ Setup &amp; Usage
 	public class MyPage : TypedPageData
 	{
 	}
+
+The Section property can be any string. Page types with the same Section string will be grouped together. If a Section is not specified, it will be part of an unlabelled section.

@@ -25,18 +25,24 @@ namespace PageTypeTabs.Controls
 			{
 				writer.RenderBeginTag(HtmlTextWriterTag.Div);
 
-				if (!string.Equals(section.Key, "__NULL__"))
-				{
-					writer.RenderBeginTag(HtmlTextWriterTag.H4);
-					writer.Write(section.Key);
-					writer.RenderEndTag();
-				}
-
 				writer.AddAttribute(HtmlTextWriterAttribute.Class, "epi-default");
 				writer.AddAttribute(HtmlTextWriterAttribute.Cellspacing, "0");
 				writer.AddAttribute(HtmlTextWriterAttribute.Border, "0");
 				writer.RenderBeginTag(HtmlTextWriterTag.Table);
 				writer.RenderBeginTag(HtmlTextWriterTag.Thead);
+
+				if (!string.Equals(section.Key, "__NULL__"))
+				{
+					writer.RenderBeginTag(HtmlTextWriterTag.Tr);
+					writer.AddAttribute(HtmlTextWriterAttribute.Colspan, "3");
+					writer.RenderBeginTag(HtmlTextWriterTag.Th);
+					writer.RenderBeginTag(HtmlTextWriterTag.H4);
+					writer.Write(section.Key);
+					writer.RenderEndTag();
+					writer.RenderEndTag();
+					writer.RenderEndTag();
+				}
+
 				writer.RenderBeginTag(HtmlTextWriterTag.Tr);
 				writer.AddAttribute(HtmlTextWriterAttribute.Scope, "col");
 				writer.RenderBeginTag(HtmlTextWriterTag.Th);

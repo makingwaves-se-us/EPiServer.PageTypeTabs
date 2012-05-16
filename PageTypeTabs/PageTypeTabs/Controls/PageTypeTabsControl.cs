@@ -13,11 +13,14 @@ namespace PageTypeTabs.Controls
 			writer.RenderBeginTag(HtmlTextWriterTag.Div);
 			writer.AddAttribute(HtmlTextWriterAttribute.Class, "epi-tabView-navigation");
 			writer.RenderBeginTag(HtmlTextWriterTag.Ul);
-			this.WriteTab("Default", writer, 0);
+			
+			WriteTab("Default", writer, 0);
+
 			for (int i = 1; i <= this.Tabs.Count; i++)
 			{
-				this.WriteTab(this.Tabs[i - 1].Name, writer, i);
+				WriteTab(Tabs[i - 1].Name, writer, i);
 			}
+
 			writer.RenderEndTag();
 			writer.RenderEndTag();
 		}

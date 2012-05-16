@@ -8,41 +8,41 @@ Setup &amp; Usage
 
 1) Update the Virtual Path Mapping in episerver.config to point to the new CreateNewPage.aspx file.
 	
-		<virtualPath customFileSummary="~/FileSummary.config">
-			<providers>
-				 <add virtualName="CreateNewPage" 
-				 	showInFileManager="false" bypassAccessCheck="false"
-				 	virtualPath="~/PageTypeTabs/CreateNewPage.aspx"  
-				 	physicalPath="" name="CreateNewPageMapping"
-				 	type="EPiServer.Web.Hosting.VirtualPathMappedProvider,EPiServer" />
-			</providers>
-		</virtualPath>
-		
-		<virtualPathMappings>
-			<add url="~/EPiServer/CMS/Edit/NewPage.aspx" 
-				mappedUrl="~/PageTypeTabs/CreateNewPage.aspx" />
-		</virtualPathMappings>
+	<virtualPath customFileSummary="~/FileSummary.config">
+		<providers>
+			 <add virtualName="CreateNewPage" 
+			 	showInFileManager="false" bypassAccessCheck="false"
+			 	virtualPath="~/PageTypeTabs/CreateNewPage.aspx"  
+			 	physicalPath="" name="CreateNewPageMapping"
+			 	type="EPiServer.Web.Hosting.VirtualPathMappedProvider,EPiServer" />
+		</providers>
+	</virtualPath>
+	
+	<virtualPathMappings>
+		<add url="~/EPiServer/CMS/Edit/NewPage.aspx" 
+			mappedUrl="~/PageTypeTabs/CreateNewPage.aspx" />
+	</virtualPathMappings>
 
 
 2) Create your tabs similar to how you would create a PageTypeBuilder tab
 
-		public class MyPageTypeTab : PageTypeTab
+	public class MyPageTypeTab : PageTypeTab
+	{
+		public override string Name
 		{
-			public override string Name
-			{
-				get { return "My Tab"; }
-			}
-	
-			public override int SortIndex
-			{
-				get { return 100; }
-			}
+			get { return "My Tab"; }
 		}
+
+		public override int SortIndex
+		{
+			get { return 100; }
+		}
+	}
 
 3) Add the PageTypeTab attribute to your PageType classes
 
-		[PageTypeTab( Tab=typeof(MyPageTypeTab), Section ="General Pages")]
-		[PageType(Filename = "/MyPage.aspx", Name = "My Page")]
-		public class MyPage : TypedPageData
-		{
-		}
+	[PageTypeTab( Tab=typeof(MyPageTypeTab), Section ="General Pages")]
+	[PageType(Filename = "/MyPage.aspx", Name = "My Page")]
+	public class MyPage : TypedPageData
+	{
+	}

@@ -10,17 +10,15 @@ Usage
 	
 	<virtualPath customFileSummary="~/FileSummary.config">
 		<providers>
-			 <add virtualName="CreateNewPage" 
+			 <add name="CreateNewPageMapping" virtualName="CreateNewPage" 
 			 	showInFileManager="false" bypassAccessCheck="false"
-			 	virtualPath="~/PageTypeTabs/CreateNewPage.aspx"  
-			 	physicalPath="" name="CreateNewPageMapping"
+			 	virtualPath="~/PageTypeTabs/CreateNewPage.aspx" physicalPath=""
 			 	type="EPiServer.Web.Hosting.VirtualPathMappedProvider,EPiServer" />
 		</providers>
 	</virtualPath>
 	
 	<virtualPathMappings>
-		<add url="~/EPiServer/CMS/Edit/NewPage.aspx" 
-			mappedUrl="~/PageTypeTabs/CreateNewPage.aspx" />
+		<add url="~/EPiServer/CMS/Edit/NewPage.aspx" mappedUrl="~/PageTypeTabs/CreateNewPage.aspx" />
 	</virtualPathMappings>
 
 
